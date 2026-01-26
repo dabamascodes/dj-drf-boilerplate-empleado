@@ -12,7 +12,15 @@ class EmpleadoAdmin(admin.ModelAdmin):
         'last_name',
         'departamento',
         'job',
+        'full_name',
     )
+    
+    def full_name(self, obj):
+        # print(obj)
+        print(obj.first_name)
+        return obj.first_name + ' ' + obj.last_name
+
+    
     search_fields = ("first_name",)
     list_filter = ('job', 'habilidades')
     
