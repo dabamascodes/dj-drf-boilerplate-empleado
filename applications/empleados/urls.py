@@ -5,4 +5,6 @@ from . import views
 
 urlpatterns = [
     path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
+    path('lista-by-area/', views.ListByAreaEmpleado.as_view()),
+
 ]
