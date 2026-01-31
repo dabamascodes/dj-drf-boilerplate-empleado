@@ -19,6 +19,14 @@ class ListAllEmpleados(ListView):
 
 class ListByAreaEmpleado(ListView):
     template_name = 'persona/lista_by_area.html'
-    queryset = Empleado.objects.filter(
-        departamento__shor_name='Contabilidad'
-    )
+    # queryset = Empleado.objects.filter(
+    #     departamento__shor_name='Contabilidad'
+    # )
+    
+    
+    def get_queryset(self):
+        area = self.kwargs['shorname']
+        lista = Empleado.objects.filter(
+            departamento__shor_name=area
+        )
+        return lista
